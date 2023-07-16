@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 void main() {
-runApp(CounterApp());
+  runApp(CounterApp());
 }
 
 class CounterApp extends StatelessWidget {
@@ -9,7 +10,7 @@ class CounterApp extends StatelessWidget {
     return MaterialApp(
       title: 'Counter App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red, // Change the primary color to red
       ),
       home: CounterPage(),
     );
@@ -28,10 +29,12 @@ class _CounterPageState extends State<CounterPage> {
     setState(() {
       _counter++;
     });
-void _decrementCounter() {
-setState(() {
-_counter--;
-});
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
   }
 
   @override
@@ -55,16 +58,22 @@ _counter--;
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            child: Icon(Icons.remove),
+          ),
+          SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
+          ),
+        ],
       ),
-      floatingActionToggle: FloatingActionToggle(  
-        onPressed: _decrementCounter,
-        tooltip:'Decrement',
-        child: Icon(Icons.subtract),
-        ),
     );
   }
-
+}
