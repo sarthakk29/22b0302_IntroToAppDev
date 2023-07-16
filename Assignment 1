@@ -60,6 +60,11 @@ _counter--;
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
+      floatingActionToggle: FloatingActionToggle(  
+        onPressed: _decrementCounter,
+        tooltip:'Decrement',
+        child: Icon(Icons.subtract),
+        ),
     );
   }
-}
+
