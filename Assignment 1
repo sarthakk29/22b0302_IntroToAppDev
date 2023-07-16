@@ -28,6 +28,10 @@ class _CounterPageState extends State<CounterPage> {
     setState(() {
       _counter++;
     });
+void _decrementCounter() {
+setState(() {
+_counter--;
+});
   }
 
   @override
